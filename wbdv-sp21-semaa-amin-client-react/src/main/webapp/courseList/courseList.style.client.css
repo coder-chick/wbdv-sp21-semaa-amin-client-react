@@ -1,0 +1,13 @@
+h1 {
+  background-color: red;
+  color: yellow;
+}
+
+#table-rows {
+  background-color: cyan;
+}
+
+.jga-create-btn {
+  background-color: green;
+  color: white;
+}

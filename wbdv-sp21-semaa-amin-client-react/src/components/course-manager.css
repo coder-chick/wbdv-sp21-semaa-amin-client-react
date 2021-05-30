@@ -1,0 +1,62 @@
+/* ------- Course Manager Classes -------
+
+
+/* ------- Course Row Classes ------- */
+
+
+/* Small Screens */
+
+.semaa-course-table {
+    position: relative;
+    height: 100%;
+}
+
+.semaa-course-grid {
+    position: relative;
+    height: 100%;
+}
+
+.semaa-course-row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+
+
+/* Medium Screens */
+
+@media (min-width: 768px) {
+    .semaa-course-row {
+        flex-direction: column;
+    }
+    .semaa-course-row a {
+        position: relative;
+        display: block;
+    }
+}
+
+
+/* Large Screens */
+
+@media (min-width: 1200px) {
+    .semaa-course-row {
+        flex-direction: column;
+    }
+    .semaa-course-row a {
+        position: relative;
+        display: block;
+    }
+  
+}
+
+/* ------- Font Awesome Classes ------- */
+/* .fas fa-2x fa-plus-circle{
+
+} */
+
+.font-awesome{
+    color: tomato;
+}

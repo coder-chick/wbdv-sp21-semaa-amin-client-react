@@ -1,0 +1,478 @@
+/* ------- Customizing some of the bootstrap classes ------- */
+
+html,
+body {
+    height: 120%;
+}
+
+h1,
+.h1 {
+    margin-bottom: 3rem!important;
+    font-size: 3rem;
+    font-weight: 400;
+    margin: 0;
+    color: navy;
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+h3,
+.h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+h4,
+.h4 {
+    font-size: 0.5rem;
+    font-weight: 400;
+    margin: 0;
+}
+
+
+
+
+p {
+    margin: 0;
+    font-weight: 400;
+}
+
+
+a {
+    font-weight: 400;
+    margin: 0;
+    cursor: pointer;
+    color: #EBAFC9;
+}
+
+button,
+button:hover,
+button:focus,
+button:active {
+    background: none;
+    outline: none;
+    color: navy;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl {
+    padding: 0;
+    height: 100%;
+}
+
+.col,
+.col-1,
+.col-10,
+.col-11,
+.col-12,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-auto,
+.col-lg,
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-lg-auto,
+.col-md,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-md-auto,
+.col-sm,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-sm-auto,
+.col-xl,
+.col-xl-1,
+.col-xl-10,
+.col-xl-11,
+.col-xl-12,
+.col-xl-2,
+.col-xl-3,
+.col-xl-4,
+.col-xl-5,
+.col-xl-6,
+.col-xl-7,
+.col-xl-8,
+.col-xl-9,
+.col-xl-auto {
+    padding: 0 0 0 0;
+ 
+}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
+
+.form-control {
+    margin-bottom: 1rem;
+}
+
+.col-form-label {
+    margin-bottom: 0.5rem;
+}
+
+.invalid-feedback {
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.alert {
+    padding: 1rem 2rem;
+}
+
+.nav-link {
+    padding: 0;
+}
+
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+    border:none !important;
+}
+
+.navbar-dark .navbar-toggler {
+    border-color: navy;
+}
+
+
+@media (min-width: 768px) {
+    .navbar-brand {
+        display: none;
+    }
+}
+
+/* ------- Main Layout Classes ------- */
+
+.semaa-container-column-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #e4e3e2;
+}
+
+.semaa-container-row-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.semaa-layout-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.semaa-responsive-column {
+    -webkit-box-flex: 0;
+    -ms-flex: 1 0 0;
+    flex: 1 0 0;
+}
+
+.semaa-centred-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+@media (min-width: 768px) {
+    .semaa-layout-wrapper {
+        flex-direction: row;
+    }
+}
+
+
+/* ------- Adjusting to take into account the varying screen sizes ------- */
+
+.semaa-col-md-2-2,
+.semaa-col-lg-4-5,
+.semaa-col-lg-7-5 {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+}
+
+@media (min-width: 768px) {
+    .semaa-col-md-2-2 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 18%;
+        flex: 0 0 18%;
+        max-width: 18%;
+        color: #000080;
+    }
+}
+
+@media (min-width: 992px) {
+    .semaa-col-lg-4-5 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 37.5%;
+        flex: 0 0 37.5%;
+        max-width: 37.5%;
+        color: #000080;
+    }
+    .semaa-col-lg-7-5 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 62.5%;
+        flex: 0 0 62.5%;
+        max-width: 62.5%;
+        color: #000080;
+    }
+}
+
+/* ------- Header Classes for Varying Screen Sizes------- */
+
+/* Small Screens */
+
+.semaa-main-header-wrapper {
+    min-height: 45px;
+    background-color: #efeeee;
+    border-bottom: 2px solid #cccccc;
+    box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.semaa-main-logo {
+    background-image: url(assets/img/main-tech-book-logo.png);
+    background-size: contain;
+    height: 45px;
+    width: 45px;
+}
+
+
+/* Medium Screens */
+
+@media (min-width: 768px) {
+    .semaa-main-header-wrapper {
+        min-height: 55px;
+    }
+    .semaa-main-logo {
+        background-image: url(assets/img/main-tech-book-logo.png);
+        height: 55px;
+        width: 55px;
+    }
+}
+
+
+/* ------- Taking into account the varying screen sizes for different Classes if the nav bar------- */
+
+/* Small Screens */
+
+.semaa-main-navigation-wrapper {
+    position: fixed;
+    bottom: 0;
+    height: 7%;
+    z-index: 100;
+    background-color:#71D674;
+    border-top: 2px solid navy;
+}
+
+.semaa-main-navigation-wrapper ul {
+    flex-direction: row;
+    justify-content: center;
+}
+
+.semaa-main-navigation-wrapper li {
+    text-align: center;
+}
+
+.semaa-main-navigation-wrapper a {
+    font-weight: 200 !important;
+    text-decoration: none;
+    color: #dbdbdb;
+    padding: 1.2rem 1.5rem !important;
+}
+
+.semaa-main-navigation-wrapper a:hover {
+    background-color:#71D674;
+}
+
+.semaa-main-navigation-wrapper p {
+    font-size: 0.7rem;
+    display: none;
+}
+
+.semaa-main-navigation-wrapper i {
+    font-size: 1.5em;
+}
+
+.active,
+.active:hover {
+    background-color: navy !important;
+    color: #71D674 !important;
+}
+
+
+/* Medium Screen */
+
+@media (min-width: 768px) {
+    .semaa-main-navigation-wrapper {
+        flex: 0 0 auto;
+        position: relative;
+        order: 1;
+        height: 100%;
+        width: 60px;
+        border: none;
+    }
+    .semaa-main-navigation-wrapper ul {
+        flex-direction: column;
+    }
+    .semaa-main-navigation-wrapper p {
+        display: flex;
+    }
+    .semaa-main-navigation-wrapper a {
+        padding: 0.8rem 0 !important;
+    }
+    .semaa-main-navigation-wrapper i {
+        margin-bottom: 0.4rem;
+    }
+}
+
+
+/* ------- Content Classes ------- */
+
+/* Small Screens */
+
+.semaa-main-content-wrapper {
+    order: 2;
+    padding-bottom: 10%;
+}
+
+.semaa-content-wrapper {
+    border: 1px solid #cccccc;
+    border-bottom: 2px solid #000080;
+    background-color: #eeeeee;
+    margin-bottom: 0.5rem;
+    padding: 1rem 0rem 1rem 1.7rem;
+}
+
+/* Medium Screens */
+
+@media (min-width: 768px) {
+    .semaa-main-content-wrapper {
+        padding: 0.8rem;
+    }
+    .semaa-content-wrapper {
+        border: 1px solid #cccccc;
+        border-top: 2px solid navy;
+    }
+}
+
+/* Small Screens */
+
+.semaa-main-sidebar-wrapper {
+    order: 1;
+    background-color: #54c6cc;
+    border-bottom: 2px solid gray;
+    display: flex;
+    flex-flow: row;
+}
+
+.semaa-main-sidebar-padding {
+    padding: 0.8rem;
+}
+
+
+/* Medium Screens */
+@media (min-width: 768px) {
+    .semaa-main-sidebar-wrapper {
+        flex: 0 0 auto;
+        flex-flow: column;
+        order: 3;
+        width: 250px;
+        border-left: 2px solid #54c6cc;
+        border-bottom: none;
+    }
+}
+
+
+/* ------- centring icons ------- */
+
+.semaa-icon {
+    display: flex;
+    align-items: center;
+    padding: 0rem 0.5rem;
+    
+}
+
+.semaa-icon a:hover {
+    color: #54c6cc;
+}
+
+/* ------- Main Background Colour Classes ------- */
+
+.semaa-green-light-bg {
+    background-color: #71D674;
+}
+
+.semaa-white-bg {
+    background-color: white;
+}
+
+.semaa-limegreen-bg {
+    background-color: #71D674;
+}
+
+/* ------- Text Colours ------- */
+
+.semaa-limegreen-txt {
+    color:#71D674;
+}
+
+.semaa-limegreen-txt:hover {
+    color: navy;
+}

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!-- Source: https://codepen.io/ceciliayang/pen/xVEjvP#code-area -->
+
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="wheel.css">
+</head>
+<body>
+<h2>Discover chinese horoscope and your zodiac sign</h2>
+<h3>Enter your birth year, month and day</h3>
+<!--       <p>Your chinese horoscope will rotate to the 12 o'clock position</p> -->
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="col-xs-4 col-lg-2 col-lg-push-3"><input class="col-xs-12" type="text" id="year" placeholder="yyyy"></div>
+      <div class="col-xs-4 col-lg-2 col-lg-push-3"><input class="col-xs-12" type="text" id="month" placeholder="mm"></div>
+      <div class="col-xs-4 col-lg-2 col-lg-push-3"><input class="col-xs-12" type="text" id="day" placeholder="dd"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 col-xs-push-2">
+      <button class="col-xs-4 col-xs-push-4 btn btn-default" type="submit" id="submit" onClick="birthDate()"><span class="glyphicon glyphicon-ok"></span></button>
+    </div>
+  </div>
+  <br/>
+  <div class="row">
+    <div class="col-xs-12">
+      <h4 class="col-xs-12 col-lg-8 col-lg-push-2 rwd-break" id="display">Your chinese horoscope will rotate to the 12 o'clock position and your zodiac sign will be displayed in the middle on the wheel</h4>
+    </div>
+  </div>
+  <div>
+    <img id="horoscope" src="https://res.cloudinary.com/cecilia/image/upload/v1462334970/horoscope_aozz1c.gif">
+    <img id="zodiac" src="https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Neptune_astronomical_astrology_horoscope_zodiac_sign_symbol-64.png" alt="your sign">
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="wheel.js"></script>
+</body>
+<style>
+  body{
+    margin-top:5%;
+    text-align:center;
+  }
+  h2, h3, h4,p{
+    color:dimgrey;
+    margin-bottom: 1%;
+    font-family: Courier;
+    font-weight: bold;
+  }
+  #year, #month, #day{
+    border:#404040;
+    color:white;
+    background-color:orange;
+    min-height:50px;
+    font-family: Courier;
+    font-weight: bold;
+    border-radius: 5px;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    -o-border-radius:5px;
+  }
+  input[placeholder]{
+    text-align: center;
+    font-family: Courier;
+    font-weight: bold;
+    color: silver;
+  }
+  #display{
+    border:#404040;
+    color:silver;
+    background-color:red;
+    /*  width:35%;*/
+    padding-top:5%;
+    padding-bottom:5%;
+    text-align:center;
+    font-family: Courier;
+    font-weight: bold;
+    border-radius: 20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -o-border-radius:20px;
+  }
+  @media screen and (max-width:480px){
+    #display.rwd-break{
+      display:block;
+    }
+  }
+  #submit{
+    border:#404040;
+    color:#fff;
+    margin-top:3%;
+    /*  width:8%;*/
+    text-align:center;
+    background-color: silver;
+    font-family: Courier;
+    font-weight: bold;
+    border-radius: 20px;
+    -webkit-border-radius:20px;
+    -moz-border-radius:20px;
+    -o-border-radius:20px;
+    outline:none;
+  }
+  #submit:hover{
+    background-color:slategrey;
+  }
+  input{
+    /*  text-align:right;*/
+    /*  width:8%;*/
+  }
+  div{
+    position:relative;
+    text-align:center;
+  }
+  /*
+  #image{
+      height: 400px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url('http://www.astrosage.com/2015/images/chinese-astrology-2015.jpg');
+  }
+  */
+  #horoscope{
+    -webkit-transform:rotate();
+    transform:rotate();
+    -ms-transform:rotate();
+    margin-top:10%;
+    /*  margin-left:4%;*/
+    width:50%;
+    height: 50%;
+    height: auto;
+    position:relative;
+    top:0;
+    left:0;
+    z-index:1;
+  }
+  #zodiac{
+    position:absolute;
+
+    z-index:2;
+    width:10%;
+    /*
+      margin-left:auto;
+      margin-right:auto;
+    */
+    top:48%;
+    left:45%;
+  }
+
+</style>
+<script>
+  function birthDate(){
+    var year=document.getElementById("year").value;
+    var month=document.getElementById("month").value;
+    var day=document.getElementById("day").value;
+    var animals=["monkey", "rooster", "dog", "pig", "rat", "ox", "tiger", "rabbit", "dragon", "snake", "horse", "goat"];
+    var stars=["an Aries", "a Taurus", "a Gemini", "a Cancer", "a Leo", "a Virgo", "a Libra", "a Scorpio", "a Sagittarius", "a Capricorn", "an Aquarius", "a Pisces"];
+    var numbers=[0,1,2,3,4,5,6,7,8,9,10,11];
+    var rotation=[225,195,165,135,105,75,45,15,345,315,285,255];
+    var degree;
+    var animal;
+    var url;
+    var element=document.getElementById("horoscope");
+    var star=[];
+    if (year===""||month===""||day===""){
+      alert("The information is incomplete!");
+    }
+    else{
+      for (var i in numbers){
+        if(numbers[i]===year%12){
+          animal=animals[i];
+          degree=rotation[i];
+        }
+      }
+      if( (month ==3 && 20 < day||(month==4 && day < 20) ){
+        star=stars[0];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Aries_horoscope_astrology_zodiac_sign_symbol-64.png';
+      }
+      else if ( (month ==4 && 19 < day )||(month==5 && day < 20) ){
+        star=stars[1];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Taurus_horoscope_astrology_zodiac_sign_symbol-64.png';
+      }
+      else if ( (month ==5 && 20 < day )||(month==6 && day <21) ){
+        star=stars[2];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Gemini_horoscope_astrology_zodiac_sign_symbol-64.png';
+      }
+      else if ( (month ==6 && 20 < day )||(month==7 && day <23) ){
+        star=stars[3];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Cancer_zodiac_horoscope_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==7 && 22 < day )||(month==8 && day<23) ){
+        star=stars[4];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Leo_zodiac_horoscope_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==8 && 22 < day )||(month==9 && day<23) ){
+        star=stars[5];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Virgo_zodiac_horoscope_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==9 && 22 < day )||(month==10 && day<23) ){
+        star=stars[6];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Libra_zodiac_horoscope_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==10 && 22 < day )||(month==11 && day<22) ){
+        star=stars[7];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/astrology_zodiac_horoscope_scorpio_sign_scorpiones_symbol-64.png';
+      }
+      else if ( (month ==11 && 21 < day )||(month==12 && day<22) ){
+        star=stars[8];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Sagittarius_horoscope_zodiac_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==12 && 21 < day )||(month==1 && day<20) ){
+        star=stars[9];
+        url='https://pixabay.com/static/uploads/photo/2012/04/18/01/12/capricorn-36390_960_720.png';
+      }
+      else if ( (month ==1 && 19 < day )||(month==2 && day<19) ){
+        star=stars[10];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Aquarius_zodiac_horoscope_astrology_sign_symbol-64.png';
+      }
+      else if ( (month ==2 && 18 < day )||(month==3 && day<21) ){
+        star=stars[11];
+        url='https://cdn0.iconfinder.com/data/icons/astronomical-signs/16/Pisces_zodiac_sign_symbol_horoscope_astrology-64.png';
+      }
+
+      document.getElementById("display").innerHTML="You are "+star+" born in the year of "+animal;
+      document.getElementById("zodiac").src=url;
+      element.style.webkitTransform="rotate("+degree+"deg)";
+      element.style.transform="rotate("+degree+"deg)";
+      element.style.msTransform="rotate("+degree+"deg)";
+    }
+  }
+</script>
+</html>
+
+
+

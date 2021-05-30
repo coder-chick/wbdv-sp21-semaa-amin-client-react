@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Making page responsive -->
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0"
+        shrink-to-fit=no>
+  <title>User Admin</title>
+  <link rel="stylesheet"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="../styles.css" rel="stylesheet" />
+  <link href="userAdmin.style.client.css" rel="stylesheet" />
+  <link rel="stylesheet"
+        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+        crossorigin="anonymous" />
+  <script src="../services/user.service.client.js"></script>
+  <script
+          src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="./userAdmin.controller.client.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+          crossorigin="anonymous">
+
+          </script>
+
+</head>
+<body>
+  <!-- Making the main container that will house all compartments-->
+  <div class="container-fluid">
+    <!-- Creates columns in the container-->
+    <div class="semaa-container-column-wrapper">
+      <!-- Main header at top of page-->
+      <div class="semaa-main-header-wrapper row">
+        <div class="semaa-responsive-column">
+          <a href="../index.html">
+            <div class="semaa-main-logo"></div>
+          </a>
+        </div>
+      </div>
+      <!-- Creating a side navigation bar-->
+      <div class="semaa-layout-wrapper row">
+        <!-- Main Navigation Bar located on the left side -->
+        <nav class="semaa-main-navigation-wrapper col-12" >
+          <ul class="navigation-bar-panel">
+            <li class="nav-item">
+              <a class="nav-link" href="../index.html">
+                <i class="fas fa-home"></i>
+                <p>Home</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="../userAdmin/userAdmin.template.client.html">
+                <i class="fas fa-user-cog"></i>
+                <p>Users</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- Start of main User content -->
+        <div class="semaa-main-content-wrapper semaa-responsive-column">
+          <div class="semaa-content-wrapper semaa-userinfo-wrapper">
+            <h1>User Admin</h1>
+            <!-- creating a class where the validation message will pop up -->
+            <div class="semaa-input-validation-message"></div>
+            <div class="semaa-table-wrapper">
+              <div class="semaa-table-header">
+                <!-- using the bootstrap grid system to create 2 columns of the same width. Used desktop version md -->
+                <!-- username column -->
+                <div class="col-12 semaa-col-md-2-2">
+                  <div class="semaa-table-header-name row">
+                    <label for="usernameFld">
+                      Username
+                    </label>
+                  </div>
+                  <div class="row">
+                    <input class="semaa-username-fld semaa-input form-control"
+                           id="usernameFld"
+                           type="text"
+                           placeholder="Username" />
+                  </div>
+                </div>
+                <!-- first name column -->
+                <div class="col-12 semaa-col-md-2-2">
+                  <div class="semaa-table-header-name row">
+                    <label for="firstNameFld">First Name</label>
+                  </div>
+                  <div class="row">
+                    <input class="semaa-firstname-fld semaa-input form-control"
+                           id="firstNameFld"
+                           type="text"
+                           placeholder="First Name" />
+                  </div>
+                </div>
+                <!-- last name column -->
+                <div class="col-12 semaa-col-md-2-2">
+                  <div class="semaa-table-header-name row">
+                    <label for="lastNameFld">
+                      Last Name
+                    </label>
+                  </div>
+                  <div class="row">
+                    <input class="semaa-lastname-fld semaa-input form-control"
+                           id="lastNameFld"
+                           type="text"
+                           placeholder="Last Name" />
+                  </div>
+                </div>
+                <!-- password column -->
+                <div class="col-12 semaa-col-md-2-2">
+                  <div class="semaa-table-header-name row">
+                    <label for="passwordFld">
+                      Password
+                    </label>
+                  </div>
+                  <div class="row">
+                    <input class="semaa-password-fld semaa-input form-control"
+                           id="passwordFld"
+                           type="password"
+                           placeholder="Password" />
+                  </div>
+                </div>
+                <!-- Role column -->
+                <div class="col-12 semaa-col-md-2-2">
+                  <div class="semaa-table-header-name row">
+                    <label for="roleFld">
+                      Role
+                    </label>
+                  </div>
+                  <div class="row">
+                    <select class="semaa-role-fld semaa-input form-control" 
+                            name="" 
+                            id="roleFld">
+                      <option value="">Select Role</option>
+                      <option value="FACULTY">Faculty</option>
+                      <option value="STUDENT">Student</option>
+                      <option value="ADMIN">Admin</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- column with no totel for the edit/add/delete options -->
+                <div class="wbdv-actions col-12 col-md-1">
+                  <div class="semaa-table-header-name semaa-table-hidden-row row">
+                    &nbsp;
+                  </div>
+                  <div class="semaa-table-hidden-element">&nbsp;</div>
+                  <div class="semaa-table-header-icon">
+                    <div class="semaa-centred-container">
+                      <div class="semaa-icon semaa-icon-btn-nautical col">
+                        <a class="semaa-create-user-btn">
+                          <i class="fa fa-plus fa-lg ​wbdv​-create"></i>
+                          <span class="semaa-table-hidden-element">
+                            Create User
+                          </span>
+                        </a>
+                      </div>
+                      <div class="semaa-icon semaa-icon-btn-dark col">
+                        <a class="semaa-update-user-btn">
+                          <!-- font awesome icons/buttons -->
+                          <i class="fa fa-check fa-lg ​wbdv​-update"></i>
+                          <span class="semaa-table-hidden-element">
+                            Update User
+                          </span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Table Body -->
+              <div class="semaa-table-body">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+
+
+
